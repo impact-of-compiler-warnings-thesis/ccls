@@ -30,7 +30,7 @@ jobs:
           cmake .. -GNinja \
                    -DCMAKE_BUILD_TYPE=Debug \
                    -DCMAKE_PREFIX_PATH=/usr/ \
-                   -DCLANG_LINK_CLANG_DYLIB=ON
+                   -DCLANG_LINK_CLANG_DYLIB=TRUE
       - name: Run build-wrapper
         run: |
           build-wrapper-linux-x86-64 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} ninja -C build

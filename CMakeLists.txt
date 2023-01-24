@@ -71,6 +71,8 @@ endif()
 
 find_package(Clang REQUIRED)
 
+message("CLANG_LINK_CLANG_DYLIB = ${CLANG_LINK_CLANG_DYLIB}")
+
 if(CLANG_LINK_CLANG_DYLIB)
   target_link_libraries(ccls PRIVATE clang-cpp)
 else()
