@@ -22,14 +22,14 @@ jobs:
         run: |
           sudo apt update
           sudo apt install ninja-build \
-                           libclang-dev \
+                           libclang-11-dev \
                            llvm-dev
       - name: Generate build files
         run: |
           mkdir build && cd build
           cmake .. -GNinja \
                    -DCMAKE_BUILD_TYPE=Debug \
-                   -DCMAKE_PREFIX_PATH=/usr/lib/ \
+                   -DCMAKE_PREFIX_PATH=/usr/ \
                    -DCLANG_LINK_CLANG_DYLIB=ON
       - name: Run build-wrapper
         run: |
