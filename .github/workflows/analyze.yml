@@ -22,16 +22,16 @@ jobs:
         run: |
           sudo apt update
           sudo apt install ninja-build \
-                           clang-12 \
-                           libclang-12-dev \
-                           llvm-12-dev 
+                           clang \
+                           libclang-dev \
+                           llvm-dev 
       - name: Generate build files
         run: |
           mkdir build && cd build
           cmake .. -GNinja \
                    -DCMAKE_BUILD_TYPE=Debug \
-                   -DCMAKE_C_COMPILER=clang-12 \
-                   -DCMAKE_CXX_COMPILER=clang++-12
+                   -DCMAKE_C_COMPILER=clang \
+                   -DCMAKE_CXX_COMPILER=clang++
       - name: Run build-wrapper
         run: |
           build-wrapper-linux-x86-64 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} ninja -C build
